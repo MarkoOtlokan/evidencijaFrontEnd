@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>placanje</title>
+  </head>
+  <body>
+
+        <div class="wrapper fadeInDown" >
+          <div id="formContent">
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+        <div class="form-group"  >
+          <input type="text"  placeholder="ime" formControlName="ime">
+        </div>
+
+        <div class="form-group"  >
+          <input type="text"  placeholder="prezime" formControlName="prezime">
+        </div>
+
+        <div class="form-group"  >
+          <input type="text"  placeholder="napomena" formControlName="napomena">
+        </div>
+      <div class="submit">
+
+        <button class="button" type="submit">Sacuvaj</button><p></p>
+      </div>
+    </form>
+  </div>
+      </div>
+  </body>
+</html>

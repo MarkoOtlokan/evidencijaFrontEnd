@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>placanje</title>
+  </head>
+  <body>
+
+        <div class="wrapper fadeInDown">
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+
+
+      <div class="form-group " >
+        <label for="inputState">Proizvod</label>
+        <select id="inputState1" class="form-control"  formControlName="proizvod" (change)="dodajCenu($event.target.value)">
+          <option *ngFor="let p of sviProizvodi" [value]="p.id">{{p.naziv}}</option>
+        </select>
+      </div>
+
+      <div class="form-group" >
+        <label for="inputState">Klijent</label>
+        <select id="inputState2" class="form-control" formControlName="klijent" >
+          <option *ngFor="let k of klijenti" [value]="k.id">{{k.ime}}</option>
+        </select>
+      </div>
+
+      <div class="form-group" >
+        <label for="inputState">Napomena:</label><br>
+        <textarea rows="4" cols="50" formControlName="napomena">
+
+        </textarea>
+      </div>
+
+
+        <div class="form-group"  >
+          <label for="inputState">Kolicina</label>
+          <input type="number" name="quantity"  formControlName="kolicina" (input)="izracunajCenu($event.target.value)">
+        </div>
+
+        <div class="form-group"  >
+          <label for="inputState">Cena</label>
+          <input type="number"  formControlName="cena"  value="{{checkoutForm.cena}}">
+        </div>
+
+
+      <div class="r">
+        <div class="levo">
+
+          <legend class="col-form-label">Da li je placeno?</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio"  id="gridRadios1" value="1" formControlName="platio" checked >
+              <label class="form-check-label" for="gridRadios1">
+                platio
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio"  id="gridRadios2" value="2" formControlName="platio">
+              <label class="form-check-label" for="gridRadios2">
+                nije platio
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="submit">
+
+        <button class="button" type="submit">Sacuvaj</button>
+      </div>
+    </form>
+      </div>
+  </body>
+</html>
