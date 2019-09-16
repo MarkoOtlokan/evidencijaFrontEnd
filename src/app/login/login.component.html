@@ -14,8 +14,8 @@
 
         <!-- Login Form -->
         <form  [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
-          <input type="text" id="login" class="fadeIn second" name="login" placeholder="login" formControlName="username">
-          <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" formControlName="password">
+          <input type="text" id="login" class="fadeIn second" name="login" placeholder="username" formControlName="username">
+          <input type="password" id="password" class="fadeIn third" name="login" placeholder="password" formControlName="password">
           <button class="button" class="fadeIn fourth" type="submit">Login in</button>
         </form>
 

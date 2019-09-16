@@ -32,6 +32,9 @@ export class AddKlijentComponent implements OnInit {
       prezime: '',
       napomena: '',
     };
+    if(this.cookie.get('token') == "null"){
+      window.open('http://localhost:4200/login', '_self');
+    }
   }
 
   napraviKlijenta() {

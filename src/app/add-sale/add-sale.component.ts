@@ -53,6 +53,9 @@ export class AddSaleComponent implements OnInit {
   ngOnInit() {
     this.getProizvodi();
     this.getKlijenti();
+    if(this.cookie.get('token') == "null"){
+      window.open('http://localhost:4200/login', '_self');
+    }
   }
 
   napraviUslugu(data) {

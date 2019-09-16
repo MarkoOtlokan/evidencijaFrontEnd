@@ -27,6 +27,9 @@ export class AddProizvodComponent implements OnInit {
    }
 
   ngOnInit() {
+    if(this.cookie.get('token') == "null"){
+      window.open('http://localhost:4200/login', '_self');
+    }
 
   }
 
