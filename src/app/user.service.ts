@@ -45,8 +45,10 @@ export class UserService {
       err => {
         console.error('login error', err);
         this.errors = err['error'];
+        return 0;
       }
     );
+    return 0;
   }
 
   /**

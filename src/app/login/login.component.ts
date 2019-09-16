@@ -9,6 +9,7 @@ import {UserService} from '../user.service';
 })
 export class LoginComponent implements OnInit {
   checkoutForm;
+  uspeh;
   us : UserService;
   public user: any;
   constructor(
@@ -32,7 +33,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this._userService.login({'username':this.user.username, 'password':this.user.password});
+    this.uspeh = this._userService.login({'username':this.user.username, 'password':this.user.password});
+    this.checkoutForm.reset();
+    if(this.uspeh == 0){
+      alert("prijava nije uspela");
+    }
   }
 
   refreshToken() {

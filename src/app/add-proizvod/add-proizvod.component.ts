@@ -37,10 +37,13 @@ export class AddProizvodComponent implements OnInit {
     this._proizvodPostService.create({'naziv':proizvodData.naziv, 'cena':proizvodData.cena,'napomena':proizvodData.napomena}).subscribe(
        data => {
          // refresh the list
+         this.checkoutForm.reset();
+         alert("Proizvod je uspesno dodat");
          this._proizvodPostService.list();
          return true;
        },
        error => {
+         alert("\tDOSLO JE DO GRESKE \n proverite da li ste popunili sva polja");
          console.error(error);
        }
     );
@@ -51,7 +54,7 @@ export class AddProizvodComponent implements OnInit {
     // Process checkout data here
     console.warn('Your order has been submitted', proizvodData);
     this.napraviProizvod(proizvodData)
-    this.checkoutForm.reset();
+
   }
 
 }

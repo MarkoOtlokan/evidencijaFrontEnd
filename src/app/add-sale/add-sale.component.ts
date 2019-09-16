@@ -69,10 +69,13 @@ export class AddSaleComponent implements OnInit {
     }).subscribe(
        data => {
          // refresh the list
+         this.checkoutForm.reset();
+         alert("Usluga je uspesno dodata");
          this._uslugaPostService.list();
          return true;
        },
        error => {
+         alert("\tDOSLO JE DO GRESKE \n proverite da li ste popunili sva polja");
          console.error(error);
        }
     );
@@ -83,7 +86,6 @@ export class AddSaleComponent implements OnInit {
     // Process checkout data here
     data.cena = this.checkoutForm.cena;
     this.napraviUslugu(data)
-    this.checkoutForm.reset();
   }
 
   dodajCenu(data){

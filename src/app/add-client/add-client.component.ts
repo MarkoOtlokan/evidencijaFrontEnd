@@ -42,10 +42,13 @@ export class AddKlijentComponent implements OnInit {
     this._klijentPostService.create({'ime':this.klijent.ime, 'prezime':this.klijent.prezime,'napomena':this.klijent.napomena}).subscribe(
        data => {
          // refresh the list
+         this.checkoutForm.reset();
+         alert("Klijent je uspesno dodat");
          this._klijentPostService.list();
          return true;
        },
        error => {
+         alert("\tDOSLO JE DO GRESKE \n proverite da li ste popunili sva polja");
          console.error(error);
        }
     );
