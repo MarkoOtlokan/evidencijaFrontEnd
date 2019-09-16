@@ -15,6 +15,7 @@ import { StartPageComponent} from './startPage/startPage.component';
 import { AddKlijentComponent} from './add-client/add-client.component';
 import { AddProizvodComponent} from './add-proizvod/add-proizvod.component';
 import {CookieService} from 'ngx-cookie-service';
+import {StatistikaComponent} from './statistika/statistika.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import {CookieService} from 'ngx-cookie-service';
       { path: 'startpage', component: StartPageComponent },
       { path: 'addclient', component: AddKlijentComponent },
       { path: 'addproizvod', component: AddProizvodComponent },
+      { path: 'statistika', component: StatistikaComponent },
       { path: '**', component: LoginComponent },
     ])
   ],
@@ -37,7 +39,8 @@ import {CookieService} from 'ngx-cookie-service';
     AddSaleComponent,
     StartPageComponent,
     AddKlijentComponent,
-    AddProizvodComponent
+    AddProizvodComponent,
+    StatistikaComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [UserService, KlijentPostService, CookieService, ProizvodPostService,UslugaPostService],

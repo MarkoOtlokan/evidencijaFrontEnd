@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>placanje</title>
+  </head>
+  <body>
+    <app-top-bar></app-top-bar>
+
+        <div class="wrapper fadeInDown">
+          <div id="formContent">
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+      <div class="form-group" >
+        <label for="inputState">Klijent</label>
+        <select id="inputState2" class="form-control" formControlName="klijent" >
+          <option *ngFor="let k of klijenti" [value]="k.id">{{k.ime + " "+ k.prezime}}</option>
+        </select>
+      </div>
+
+      <div class="submit">
+
+        <button class="button" type="submit">Pregledaj</button>
+      </div>
+
+
+
+
+      <div class="form-group" >
+        <table>
+          <tr>
+            <th>datum</th>
+            <th>artikal</th>
+            <th>cena</th>
+            <th>placeno</th>
+          </tr>
+          <tr *ngFor="let u of uslugeKorisnika">
+            <td>
+              {{u.datum + " "+ u.sat}}
+            </td>
+            <td>
+              {{u.proizvodNaziv}}
+            </td>
+            <td>
+              {{u.cena}}
+            </td>
+            <td>
+              {{u.placeno}}
+            </td>
+
+          </tr>
+        </table>
+      </div>
+
+      <div class="form-group" >
+        <label for="inputState">Klijent je potrosio : </label>{{this.potrosio}}
+
+      </div>
+      <div class="form-group" >
+        <label for="inputState">Klijent je duzan : </label>{{this.duzan}}
+
+      </div>
+
+
+    </form>
+  </div>
+      </div>
+  </body>
+</html>
